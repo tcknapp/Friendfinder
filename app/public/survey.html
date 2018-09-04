@@ -26,13 +26,13 @@
                         <form method="POST" role="form"></form>
 
                         <div class="form-group">
-                            <label for="userName">Name (Required)</label>
-                            <input type="text" class="form-control" id="userName">
+                            <label for="name">Name (Required)</label>
+                            <input type="text" class="form-control" id="name" required="">
                         </div>
                         <!-- link to photo req -->
                         <div class="form-group">
-                            <label for="userPhoto">Link to Photo (Required)</label>
-                            <input type="text" class="form-control" id="userPhoto">
+                            <label for="photo">Link to Photo (Required)</label>
+                            <input type="text" class="form-control" id="photo" required="">
                         </div>
                         <hr>
 
@@ -158,7 +158,7 @@
                                 <option value="5">5 (Strongly Agree)</option>
                             </select>
                             <br>
-                            
+
                             <!--LINK SUBMIT BUTTON-->
                             <button type="submit" class="btn btn-primary btn-md" id="submit">Match Me!</button>
 
@@ -169,18 +169,69 @@
                 </div>
             </div>
         </div>
-
+        <!--Footer with API and Repo-->
         <footer class="footer">
             <div class="container">
                 <p><a href="/api/friends">Friends API</a> | <a href="">Github Repo</a>
             </div>
         </footer>
 
+        <!--Modal-->
+        <!--(modal test)-->
+        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#resultsModal">test modal</button>  -->
+        <div class="modal fade" id="resultsModal" tabindex="-1" role="dialog" aria-labelledby="resultsModal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Most Compatible:</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h2 id="matchName"></h2>
+                        <img id="matchPhoto" src="" height="350" width="300">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <!--JS/jQ-->
-    <script type="text/javascript">
-    
-    </script>
+
+
+        <!--JS/jQ-->
+        <script type="text/javascript">
+
+            //POST form data to server
+            $("#submit").on("click", function (event) {
+                event.preventDefault();
+
+                var userData = {
+                    name: $("#name").val().trim(),
+                    photo: $("#photo").val().trim(),
+                    scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val(),]
+                };
+                console.log(userData);
+
+                //Get website URL
+                //var currentURL = window.location.origin;
+
+                //AJAX call to post to friends api
+                $.post("/api/friends", userData, function(data) {
+                    //Grab then display match to Modal
+                    $("#matchName").text(data.name);
+                    $("#matchPhoto").attr("src", data.photo);
+                    //display in modal
+                    $("#resultsModal").modal('show');
+                }
+                )
+
+
+            });
+
+        </script>
 
 </body>
 
