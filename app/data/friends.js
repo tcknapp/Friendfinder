@@ -15,24 +15,24 @@ var friends = [
         scores:[5,3,3,3,1,3,5,4,2,1],
     },
     {
-        name:"",
-        photo:"",
-        scores:[],
+        name:"Bobby Ray",
+        photo:"https://pbs.twimg.com/profile_images/440961110750281728/mV8Nb4DD.jpeg",
+        scores:[2,1,2,1,2,1,2,1,2,1],
     },
     {
-        name:"",
-        photo:"",
-        scores:[],
+        name:"Bill Bobert",
+        photo:"https://pbs.twimg.com/profile_images/440961110750281728/mV8Nb4DD.jpeg",
+        scores:[4,4,4,3,4,3,4,3,5,4],
     },
     {
-        name:"",
-        photo:"",
-        scores:[],
+        name:"Bobette Ray",
+        photo:"https://pbs.twimg.com/profile_images/440961110750281728/mV8Nb4DD.jpeg",
+        scores:[1,2,3,4,5,4,3,2,1,2],
     },
     {
-        name:"",
-        photo:"",
-        scores:[],
+        name:"Bo Johnson",
+        photo:"https://pbs.twimg.com/profile_images/440961110750281728/mV8Nb4DD.jpeg",
+        scores:[5,5,5,5,5,5,5,5,5,5],
     }
     
 ];
