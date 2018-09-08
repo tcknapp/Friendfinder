@@ -27,18 +27,20 @@ module.exports = function (app) {
             totalDiff = 0;
 
             for (var k = 0; k < 10; k++) {
+                //Math.abs will give absolute value
+                //subtract the newMatch's score from the data in the friends array
                 totalDiff = totalDiff + Math.abs((parseInt(newMatch.scores[k]) - friendsData[i].scores[k]));
             }
-
+            //best match possibility is '0'
             if (i === 0) {
                 topMatch = 0;
                 newDiff = totalDiff;
-            } 
-            else 
-            {
-            if (totalDiff < newDiff) {
-                topMatch = i;
-                newDiff = totalDiff;
+            }
+            else {
+                //match to topMatch, use index 
+                if (totalDiff < newDiff) {
+                    topMatch = i;
+                    newDiff = totalDiff;
                 }
             }
         }
