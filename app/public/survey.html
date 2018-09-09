@@ -22,9 +22,8 @@
                     <div class="card-body">
                         <h3>About You:</h3>
 
-                        <!--FORM-CONNECT TO JS-->
+                        <!--FORM-connect to JS-->
                         <form method="POST" role="form">
-
                             <div class="form-group">
                                 <label for="name">Name (Required)</label>
                                 <input type="text" class="form-control" id="name">
@@ -34,6 +33,8 @@
                                 <label for="photo">Link to Photo (Required)</label>
                                 <input type="text" class="form-control" id="photo">
                             </div>
+
+
                             <hr>
 
                             <!--Questions-->
@@ -201,11 +202,12 @@
         <!--JS/jQ-->
         <script type="text/javascript">
 
-            //!!!Need validation for all fields entered
 
             //POST form data to server
             $("#submit").on("click", function () {
                 event.preventDefault();
+                //!!!Need validation for all fields entered    
+               
 
                 var userData = {
                     name: $("#name").val().trim(),
