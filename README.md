@@ -76,3 +76,4 @@ The modal should display both the name and picture of the closest match.
 ### Technologies Used
 * Node
 * Express
+
